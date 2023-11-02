@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "packageName": "a",
+      "projectFolder": "a",
+      "subspace": "first"
+    },
+    {
+      "packageName": "b",
+      "projectFolder": "b",
+      "subspace": "second"
+    },
+    {
+      "packageName": "c",
+      "projectFolder": "c"
+    },
+    {
+      "packageName": "d",
+      "projectFolder": "d",
+      "subspace": "third"
+    },
+    {
+      "packageName": "e",
+      "projectFolder": "e",
+      "subspace": "first"
+    }
+  ]
+}

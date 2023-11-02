@@ -1,0 +1,12 @@
+{
+  "name": "d",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo Building d"
+  },
+  "dependencies": {
+    "a": "workspace:*",
+    "b": "workspace:*",
+    "c": "workspace:*"
+  }
+}

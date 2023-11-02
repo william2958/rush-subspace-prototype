@@ -1,0 +1,15 @@
+{
+  "name": "parsesubspaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parseSubspaces.js",
+  "scripts": {
+    "parseSubspaces": "node ./parseSubspaces"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

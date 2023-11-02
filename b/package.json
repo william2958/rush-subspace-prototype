@@ -1,0 +1,9 @@
+{
+  "name": "b",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo Building b"
+  },
+  "dependencies": {
+  }
+}
