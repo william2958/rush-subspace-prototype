@@ -1,0 +1,11 @@
+lockfileVersion: 5.3
+
+importers:
+
+  ../../../c:
+    specifiers:
+      a: link:../a/
+      b: link:../b/
+    dependencies:
+      a: link:../a
+      b: link:../b

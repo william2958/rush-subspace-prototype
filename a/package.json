@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "b": "workspace:*",
-    "e": "workspace:*"
+    "e": "workspace:*",
+    "react": "^18.2.0"
   }
 }

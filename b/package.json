@@ -5,5 +5,7 @@
     "build": "echo Building b"
   },
   "dependencies": {
+    "a": "workspace:*",
+    "axios": "^1.6.0"
   }
 }

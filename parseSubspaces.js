@@ -102,6 +102,16 @@ async function parseSubspaces() {
     // Run pnpm install
     try {
       await execSync("pnpm install", { cwd: `common/temp/${subspaceName}` });
+
+      if (fs.existsSync(`common/temp/${subspaceName}/pnpm-lock.yaml`)) {
+        // Remove the original pnpm-lock file
+        fs.rmSync(`common/config/subspaces/${subspaceName}/pnpm-lock.yaml`);
+        // Copy back the pnpm-lock.yaml file after it is updated
+        fs.copyFileSync(
+          `common/temp/${subspaceName}/pnpm-lock.yaml`,
+          `common/config/subspaces/${subspaceName}/pnpm-lock.yaml`
+        );
+      }
     } catch (e) {
       console.error("Error pnpm installing for subspace: ", subspaceName, e);
     }
