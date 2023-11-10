@@ -12,17 +12,17 @@
     },
     {
       "packageName": "c",
-      "projectFolder": "c"
+      "projectFolder": "c",
+      "subspace": "third"
     },
     {
       "packageName": "d",
-      "projectFolder": "d",
-      "subspace": "third"
+      "projectFolder": "d"
     },
     {
       "packageName": "e",
       "projectFolder": "e",
-      "subspace": "first"
+      "subspace": "second"
     }
   ]
 }

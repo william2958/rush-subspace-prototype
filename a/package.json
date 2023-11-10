@@ -5,8 +5,6 @@
     "build": "echo Building a"
   },
   "dependencies": {
-    "b": "workspace:*",
-    "e": "workspace:*",
     "react": "^18.2.0"
   }
 }

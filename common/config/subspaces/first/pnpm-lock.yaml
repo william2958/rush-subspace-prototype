@@ -4,16 +4,9 @@ importers:
 
   ../../../a:
     specifiers:
-      b: link:../b/
-      e: workspace:*
       react: ^18.2.0
     dependencies:
-      b: link:../b
-      e: link:../e
       react: 18.2.0
-
-  ../../../e:
-    specifiers: {}
 
 packages:
 

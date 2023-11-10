@@ -1,0 +1,15 @@
+{
+  // Default is always an available subspace
+  "enabled": true,
+  "availableSubspaces": [
+    {
+      "subspaceName": "first"
+    },
+    {
+      "subspaceName": "second"
+    },
+    {
+      "subspaceName": "third"
+    }
+  ]
+}
