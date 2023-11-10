@@ -20,8 +20,6 @@ async function parseSubspaces() {
     return;
   }
 
-  console.log("rush json: ", rushJson);
-
   const { projects } = rushJson;
   const { availableSubspaces } = subspaceJson;
   const availableSubspaceMap = new Map();
@@ -78,12 +76,25 @@ async function parseSubspaces() {
     const pnpmWorkspace = {
       packages: [],
     };
+
+    // Check how many projects are in this subspace
+    let subspaceConfigPath = `common/config/subspaces/${subspaceName}`;
+    if (subspaceProjects.length === 1 && subspaceName !== "default") {
+      console.log(
+        `This subspace only has one project: ${subspaceName} ${subspaceProjects[0].packageName}`
+      );
+      // Look for config files in a different location
+      const proj = subspaceProjects[0];
+      if (fs.existsSync(`${proj.projectFolder}/subspace/${subspaceName}`)) {
+        subspaceConfigPath = `${proj.projectFolder}/subspace/${subspaceName}`;
+      }
+    }
+
     for (const project of subspaceProjects) {
       pnpmWorkspace.packages.push(
         path.relative(`common/temp/${subspaceName}`, project.projectFolder)
       );
     }
-    console.log("workspace packages: ", pnpmWorkspace);
 
     // Clean the temp subspace folder
     fs.rmSync(`common/temp/${subspaceName}`, { recursive: true, force: true });
@@ -101,13 +112,13 @@ async function parseSubspaces() {
 
     // Copy .npmrc file over
     fs.copyFileSync(
-      `common/config/subspaces/${subspaceName}/.npmrc`,
+      `${subspaceConfigPath}/.npmrc`,
       `common/temp/${subspaceName}/.npmrc`
     );
 
     // Copy .pnpm-lock.yaml file over
     fs.copyFileSync(
-      `common/config/subspaces/${subspaceName}/pnpm-lock.yaml`,
+      `${subspaceConfigPath}/pnpm-lock.yaml`,
       `common/temp/${subspaceName}/pnpm-lock.yaml`
     );
 
@@ -125,11 +136,11 @@ async function parseSubspaces() {
 
       if (fs.existsSync(`common/temp/${subspaceName}/pnpm-lock.yaml`)) {
         // Remove the original pnpm-lock file
-        fs.rmSync(`common/config/subspaces/${subspaceName}/pnpm-lock.yaml`);
+        fs.rmSync(`${subspaceConfigPath}/pnpm-lock.yaml`);
         // Copy back the pnpm-lock.yaml file after it is updated
         fs.copyFileSync(
           `common/temp/${subspaceName}/pnpm-lock.yaml`,
-          `common/config/subspaces/${subspaceName}/pnpm-lock.yaml`
+          `${subspaceConfigPath}/pnpm-lock.yaml`
         );
       }
     } catch (e) {
@@ -140,7 +151,6 @@ async function parseSubspaces() {
 
 // Accepts an array of current subspace projects
 function getReadPackageFunction(currSubspaceProjects) {
-  console.log("projects: ", currSubspaceProjects);
   let currSubspaceProjectsString = "[";
 
   for (const project of currSubspaceProjects) {

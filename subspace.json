@@ -1,6 +1,7 @@
 {
   // Default is always an available subspace
   "enabled": true,
+  "depreciated_tt_support": true,
   "availableSubspaces": [
     {
       "subspaceName": "first"
