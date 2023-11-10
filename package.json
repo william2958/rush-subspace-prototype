@@ -10,6 +10,7 @@
   "type": "module",
   "license": "ISC",
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "json5": "^2.2.3"
   }
 }

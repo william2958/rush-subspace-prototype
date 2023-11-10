@@ -8,13 +8,26 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
+import json5 from "json5";
 import { execSync } from "child_process";
 
 async function parseSubspaces() {
-  const rushJson = JSON.parse(fs.readFileSync("./rush.json"));
+  const rushJson = json5.parse(fs.readFileSync("./rush.json"));
+  const subspaceJson = json5.parse(fs.readFileSync("./subspace.json"));
+
+  if (!subspaceJson.enabled) {
+    console.error("Subspaces feature not enabled.");
+    return;
+  }
+
   console.log("rush json: ", rushJson);
 
   const { projects } = rushJson;
+  const { availableSubspaces } = subspaceJson;
+  const availableSubspaceMap = new Map();
+  for (const subspace of availableSubspaces) {
+    availableSubspaceMap.set(subspace.subspaceName, subspace);
+  }
 
   const projectMap = {};
   for (const project of projects) {
@@ -27,6 +40,13 @@ async function parseSubspaces() {
     let subspace = "default";
     if (project.subspace) {
       subspace = project.subspace;
+    }
+
+    if (subspace !== "default" && !availableSubspaceMap.has(subspace)) {
+      console.error(
+        `The subspace ${subspace} is not defined in the subspace.json file.`
+      );
+      return;
     }
 
     if (!subspaces[subspace]) {
