@@ -1,0 +1,6 @@
+{
+  // Default is always an available subspace
+  "enabled": true,
+  "splitWorkspaceCompatibility": true,
+  "subspaceNames": ["first", "second", "third"]
+}

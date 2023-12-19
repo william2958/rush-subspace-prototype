@@ -1,19 +1,21 @@
 {
+  "rushVersion": "5.109.1",
+  "pnpmVersion": "8.7.6",
   "projects": [
     {
       "packageName": "a",
       "projectFolder": "a",
-      "subspace": "first"
+      "subspaceName": "first"
     },
     {
       "packageName": "b",
       "projectFolder": "b",
-      "subspace": "second"
+      "subspaceName": "second"
     },
     {
       "packageName": "c",
       "projectFolder": "c",
-      "subspace": "third"
+      "subspaceName": "third"
     },
     {
       "packageName": "d",
@@ -22,7 +24,7 @@
     {
       "packageName": "e",
       "projectFolder": "e",
-      "subspace": "second"
+      "subspaceName": "second"
     }
   ]
 }
