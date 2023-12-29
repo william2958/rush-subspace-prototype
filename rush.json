@@ -1,6 +1,7 @@
 {
   "rushVersion": "5.109.1",
   "pnpmVersion": "8.7.6",
+  "ensureConsistentVersions": true,
   "projects": [
     {
       "packageName": "a",
