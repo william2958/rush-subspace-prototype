@@ -1,13 +1,26 @@
-lockfileVersion: 5.3
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
+
+overrides:
+  package-json: ^7
+
+packageExtensionsChecksum: e018a987bfd03cbebe669c2ca9ae0f88
 
 importers:
 
+  .: {}
+
   ../../../d:
-    specifiers:
-      a: link:../a/
-      b: link:../b/
-      c: link:../c/
     dependencies:
-      a: link:../a
-      b: link:../b
-      c: link:../c
+      a:
+        specifier: link:../a
+        version: link:../a
+      b:
+        specifier: link:../b
+        version: link:../b
+      c:
+        specifier: link:../c
+        version: link:../c
