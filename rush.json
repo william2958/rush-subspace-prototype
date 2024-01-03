@@ -24,8 +24,7 @@
     },
     {
       "packageName": "e",
-      "projectFolder": "e",
-      "subspaceName": "second"
+      "projectFolder": "e"
     }
   ]
 }

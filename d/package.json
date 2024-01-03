@@ -7,6 +7,7 @@
   "dependencies": {
     "a": "workspace:*",
     "b": "workspace:*",
-    "c": "workspace:*"
+    "c": "workspace:*",
+    "typescript": "~5.3.3"
   }
 }
